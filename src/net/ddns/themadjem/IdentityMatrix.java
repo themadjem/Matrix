@@ -9,7 +9,7 @@ public class IdentityMatrix extends Matrix {
 
     /**
      * Constructs the identity matrix of a given size
-     *
+     * <p>
      * Identity matrices are square and have a 1 in
      * each element where the row and column are equal
      * and 0 in every other element
@@ -28,5 +28,4 @@ public class IdentityMatrix extends Matrix {
             }
         }
     }
-
 }

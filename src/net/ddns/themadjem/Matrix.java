@@ -362,5 +362,4 @@ public class Matrix {
         addToStr("]\n");
         return matrix_string;
     }
-
 }

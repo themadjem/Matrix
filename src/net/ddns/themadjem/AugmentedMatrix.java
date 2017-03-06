@@ -68,7 +68,7 @@ public class AugmentedMatrix extends Matrix {
         augType = INPUT_OUTPUT;
         for (int row = 0; row < getRows() - 1; row++) {
             for (int col = 0; col < getCols() - 1; col++) {
-                if (col == getCols()-1){
+                if (col == getCols() - 1) {
                     setElement(row, col, m2.getElement(row, 0));
                 }
 
@@ -86,17 +86,19 @@ public class AugmentedMatrix extends Matrix {
         }
         for (int i = getRows() - 1; i >= 0; i--) {
             result[i].divideEquals(result[i].getElement(i));
-//            System.out.println("Setting element at (" + i + "," + i + ") to 1\n\n" + new AugmentedMatrix(new Matrix(result)).toFormattedString());
             for (int j = getCols() - augType; j >= 0; j--) {
                 if (j != i) {
-                    result[j].plusEquals(result[i].mult(result[j].getElement(i) * -1));
-//                    System.out.println("Setting element at (" + i + "," + j + ") to 0\n\n" + new AugmentedMatrix(new Matrix(result)).toFormattedString());
+                    result[j].plusEquals(result[i].multiply(result[j].getElement(i) * -1));
                 }
             }
         }
         return new AugmentedMatrix(new Matrix(result));
     }
 
+    /**
+     * Returns the inverse of a square matrix augmented with an identity
+     * @return
+     */
     public Matrix inverse() {
         if (getCols() == getRows() * 2) {
             return this.rref();
@@ -143,5 +145,4 @@ public class AugmentedMatrix extends Matrix {
         addToStr("]\n\n");
         return matrix_string;
     }
-
 }
