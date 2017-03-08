@@ -7,6 +7,7 @@ import java.util.Random;
  * @author Jesse Maddox
  * @version 1.0
  * @since Java 8
+ * @see net.ddns.themadjem.Vector2D
  */
 public class Matrix {
 
